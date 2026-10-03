@@ -1,12 +1,14 @@
 /**
  * ===================================================================
  * YOUSSEF ELFAROUK — DATA ENGINEERING PORTFOLIO ENGINE
- * Blue & Purple Gradient Aesthetic with Rich Icons & Micro-Interactions
+ * Handles Theme Toggling, Project Filtering, Case Study Modals,
+ * and Dynamic Rendering from portfolio-data.js.
  * ===================================================================
  */
 
 document.addEventListener('DOMContentLoaded', () => {
   if (typeof PORTFOLIO_DATA === 'undefined') {
+
     console.error('PORTFOLIO_DATA not found. Please ensure js/portfolio-data.js is loaded.');
     return;
   }
@@ -49,33 +51,37 @@ function renderHeroAndPersonal() {
 
   // Title, Brand & Role
   const navBrand = document.getElementById('nav-brand-name');
+  const heroTitle = document.getElementById('hero-title');
+  const heroRole = document.getElementById('hero-role');
+  const heroDesc = document.getElementById('hero-description');
   const heroPhoto = document.getElementById('hero-photo');
   const cvBtn = document.getElementById('btn-download-cv');
   const footerName = document.getElementById('footer-name');
   const footerYear = document.getElementById('footer-year');
 
   if (navBrand) navBrand.textContent = p.name;
+  if (heroTitle) heroTitle.textContent = p.name;
+  if (heroRole) heroRole.textContent = p.role;
+  if (heroDesc) heroDesc.textContent = p.headline;
   if (cvBtn && p.cvUrl) cvBtn.href = p.cvUrl;
   if (footerName) footerName.textContent = p.name;
   if (footerYear) footerYear.textContent = new Date().getFullYear();
 
-  // Avatar / Profile photo with friendly Blue-Purple gradient fallback
+  // Avatar / Profile photo with fallback
   if (heroPhoto) {
     heroPhoto.src = p.avatar;
     heroPhoto.alt = `${p.name} — ${p.role}`;
     heroPhoto.onerror = () => {
-      heroPhoto.src = "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 480' fill='none'><defs><linearGradient id='bgGrad' x1='0%' y1='0%' x2='100%' y2='100%'><stop offset='0%' stop-color='%23101522'/><stop offset='100%' stop-color='%23182032'/></linearGradient><linearGradient id='circleGrad' x1='0%' y1='0%' x2='100%' y2='100%'><stop offset='0%' stop-color='%233B82F6'/><stop offset='100%' stop-color='%238B5CF6'/></linearGradient></defs><rect width='400' height='480' fill='url(%23bgGrad)'/><circle cx='200' cy='180' r='75' fill='%23101522' stroke='url(%23circleGrad)' stroke-width='3'/><path d='M100 395 C100 295, 300 295, 300 395' fill='%23101522' stroke='url(%23circleGrad)' stroke-width='3'/><text x='200' y='192' font-family='sans-serif' font-size='38' font-weight='800' fill='%2360A5FA' text-anchor='middle'>YE</text><text x='200' y='425' font-family='monospace' font-size='14' font-weight='bold' fill='%23A78BFA' text-anchor='middle'>Junior Data Engineer</text></svg>";
+      // Professional SVG fallback representing a Data Engineer
+      heroPhoto.src = "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 480' fill='none'><rect width='400' height='480' fill='%23181F27'/><circle cx='200' cy='180' r='75' fill='%23202833' stroke='%2345B0A8' stroke-width='2'/><path d='M100 390 C100 290, 300 290, 300 390' fill='%23202833' stroke='%2345B0A8' stroke-width='2'/><text x='200' y='190' font-family='sans-serif' font-size='38' font-weight='bold' fill='%2345B0A8' text-anchor='middle'>YE</text><text x='200' y='425' font-family='monospace' font-size='14' fill='%238E9BAE' text-anchor='middle'>Junior Data Engineer</text></svg>";
     };
   }
 
-  // Core Tech Pills with Friendly Icons
+  // Core Tech Pills
   const pillsContainer = document.getElementById('hero-tech-list');
   if (pillsContainer && p.coreTechPills) {
     pillsContainer.innerHTML = p.coreTechPills.map(tech => `
-      <span class="tech-pill">
-        ${getTechIcon(tech)}
-        <span>${escapeHTML(tech)}</span>
-      </span>
+      <span class="tech-pill">${escapeHTML(tech)}</span>
     `).join('');
   }
 
@@ -94,7 +100,7 @@ function renderHeroAndPersonal() {
 }
 
 /* ===================================================================
-   3. PRACTICAL DATA ENGINEERING PROJECTS
+   3. PRACTICAL DATA ENGINEERING PROJECTS (Filtering & Case Studies)
    =================================================================== */
 let currentFilter = 'all';
 
@@ -103,6 +109,7 @@ function renderProjects() {
   const filterBar = document.getElementById('projects-filter-bar');
   if (!container || !PORTFOLIO_DATA.projects) return;
 
+  // Filter Buttons Listener
   if (filterBar) {
     filterBar.querySelectorAll('.filter-btn').forEach(btn => {
       btn.addEventListener('click', (e) => {
@@ -153,7 +160,7 @@ function renderProjectList() {
           <div class="ps-card ps-problem">
             <div class="ps-card-header">
               <span class="ps-icon">
-                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                   <circle cx="12" cy="12" r="10"></circle>
                   <line x1="12" y1="8" x2="12" y2="12"></line>
                   <line x1="12" y1="16" x2="12.01" y2="16"></line>
@@ -167,9 +174,8 @@ function renderProjectList() {
           <div class="ps-card ps-solution">
             <div class="ps-card-header">
               <span class="ps-icon">
-                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                  <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
-                  <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polyline points="20 6 9 17 4 12"></polyline>
                 </svg>
               </span>
               <span class="ps-label">The Solution</span>
@@ -178,14 +184,9 @@ function renderProjectList() {
           </div>
         </div>
 
-        <!-- Tech Stack Tags with Mini Icons -->
+        <!-- Tech Stack Tags -->
         <div class="project-tech-stack">
-          ${p.techStack.map(t => `
-            <span class="tech-tag">
-              ${getTechIcon(t)}
-              <span>${escapeHTML(t)}</span>
-            </span>
-          `).join('')}
+          ${p.techStack.map(t => `<span class="tech-tag">${escapeHTML(t)}</span>`).join('')}
         </div>
 
         <!-- Action Buttons -->
@@ -219,7 +220,7 @@ function renderProjectList() {
             <span class="preview-window-title">${escapeHTML(p.imageTitle || 'Pipeline Architecture')}</span>
           </div>
           <div class="project-main-image-slot" onclick="openCaseStudy('${p.id}')">
-            <img src="${p.image}" alt="${escapeHTML(p.title)}" loading="lazy" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\\'http://www.w3.org/2000/svg\\' viewBox=\\'0 0 500 280\\' fill=\\'none\\'><rect width=\\'500\\' height=\\'280\\' fill=\\'%23101522\\'/><circle cx=\\'250\\' cy=\\'100\\' r=\\'40\\' fill=\\'%23161D30\\' stroke=\\'%236366F1\\' stroke-width=\\'2\\'/><text x=\\'250\\' y=\\'106\\' font-family=\\'monospace\\' font-size=\\'18\\' font-weight=\\'bold\\' fill=\\'%2360A5FA\\' text-anchor=\\'middle\\'>DWH</text><text x=\\'250\\' y=\\'170\\' font-family=\\'monospace\\' font-size=\\'15\\' font-weight=\\'bold\\' fill=\\'%23A78BFA\\' text-anchor=\\'middle\\'>${escapeHTML(p.title)}</text><text x=\\'250\\' y=\\'200\\' font-family=\\'sans-serif\\' font-size=\\'12\\' fill=\\'%238696AB\\' text-anchor=\\'middle\\'>Click to view pipeline case study</text></svg>'">
+            <img src="${p.image}" alt="${escapeHTML(p.title)}" loading="lazy" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\\'http://www.w3.org/2000/svg\\' viewBox=\\'0 0 500 280\\' fill=\\'none\\'><rect width=\\'500\\' height=\\'280\\' fill=\\'%23151B22\\'/><text x=\\'250\\' y=\\'130\\' font-family=\\'monospace\\' font-size=\\'15\\' fill=\\'%2345B0A8\\' text-anchor=\\'middle\\'>[ ${escapeHTML(p.title)} ]</text><text x=\\'250\\' y=\\'165\\' font-family=\\'sans-serif\\' font-size=\\'12\\' fill=\\'%238E9BAE\\' text-anchor=\\'middle\\'>Click to view pipeline case study</text></svg>'">
             <span class="project-zoom-hint">
               <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <circle cx="11" cy="11" r="8"></circle>
@@ -246,25 +247,16 @@ function renderServices() {
   const container = document.getElementById('services-container');
   if (!container || !PORTFOLIO_DATA.services) return;
 
-  const serviceIcons = [
-    // 01 Data Cleaning (Sparkles/Filter)
-    `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"></path></svg>`,
-    // 02 ETL & Pipelines (Activity/Repeat)
-    `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline></svg>`,
-    // 03 Data Transformation (Layers/Box)
-    `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg>`,
-    // 04 Data Quality (Shield check)
-    `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><polyline points="9 12 11 14 15 10"></polyline></svg>`,
-    // 05 Data Warehousing (Database cylinder)
-    `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><ellipse cx="12" cy="5" rx="9" ry="3"></ellipse><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"></path><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path></svg>`
-  ];
-
   container.innerHTML = PORTFOLIO_DATA.services.map((s, idx) => `
     <div class="service-card ${idx === 4 ? 'service-card-wide' : ''}">
       <div class="service-card-top">
         <span class="service-number">${escapeHTML(s.number)}</span>
         <div class="service-icon-box">
-          ${serviceIcons[idx] || serviceIcons[0]}
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <ellipse cx="12" cy="5" rx="9" ry="3"></ellipse>
+            <path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"></path>
+            <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path>
+          </svg>
         </div>
       </div>
       <h3>${escapeHTML(s.title)}</h3>
@@ -272,7 +264,7 @@ function renderServices() {
       <ul class="service-deliverables">
         ${s.deliverables.map(d => `
           <li>
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
               <polyline points="20 6 9 17 4 12" />
             </svg>
             ${escapeHTML(d)}
@@ -284,24 +276,21 @@ function renderServices() {
 }
 
 /* ===================================================================
-   5. SKILLS & TOOLS (Grouped without arbitrary ratings + Rich Icons)
+   5. SKILLS & TOOLS (Grouped without arbitrary percentage ratings)
    =================================================================== */
 function renderSkills() {
   const container = document.getElementById('skills-container');
   if (!container || !PORTFOLIO_DATA.skills) return;
 
-  const categoryIcons = {
-    'Data Engineering': `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><ellipse cx="12" cy="5" rx="9" ry="3"></ellipse><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"></path><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path></svg>`,
-    'Programming & Data': `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>`,
-    'Databases': `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7v10c0 2.21 3.58 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.58 4 8 4s8-1.79 8-4M4 7c0-2.21 3.58-4 8-4s8 1.79 8 4"></path></svg>`,
-    'Development & Tools': `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path></svg>`
-  };
-
   container.innerHTML = PORTFOLIO_DATA.skills.map(group => `
     <div class="skill-category-card ${group.isLead ? 'skill-lead-card' : ''}">
       <div class="category-header">
         <div class="category-icon">
-          ${categoryIcons[group.category] || categoryIcons['Data Engineering']}
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <ellipse cx="12" cy="5" rx="9" ry="3"></ellipse>
+            <path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"></path>
+            <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path>
+          </svg>
         </div>
         <div>
           <h3 class="category-title">${escapeHTML(group.category)}</h3>
@@ -311,7 +300,9 @@ function renderSkills() {
       <div class="skills-badge-list">
         ${group.items.map(item => `
           <span class="skill-badge ${item.highlight ? 'badge-highlight' : ''}">
-            ${getTechIcon(item.name)}
+            <svg class="skill-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="20 6 9 17 4 12"></polyline>
+            </svg>
             <span>${escapeHTML(item.name)}</span>
           </span>
         `).join('')}
@@ -330,13 +321,13 @@ function renderCertifications() {
   container.innerHTML = PORTFOLIO_DATA.certifications.map(cert => `
     <div class="certification-card">
       <div class="cert-image-container">
-        <img src="${cert.image}" alt="${escapeHTML(cert.title)}" class="cert-image" loading="lazy" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\\'http://www.w3.org/2000/svg\\' viewBox=\\'0 0 400 240\\' fill=\\'none\\'><rect width=\\'400\\' height=\\'240\\' fill=\\'%23101522\\'/><circle cx=\\'200\\' cy=\\'100\\' r=\\'45\\' fill=\\'%23161D30\\' stroke=\\'%238B5CF6\\' stroke-width=\\'2\\'/><text x=\\'200\\' y=\\'108\\' font-family=\\'sans-serif\\' font-size=\\'22\\' font-weight=\\'bold\\' fill=\\'%2360A5FA\\' text-anchor=\\'middle\\'>DEPI</text><text x=\\'200\\' y=\\'180\\' font-family=\\'monospace\\' font-size=\\'13\\' font-weight=\\'bold\\' fill=\\'%23A78BFA\\' text-anchor=\\'middle\\'>${escapeHTML(cert.title)}</text></svg>'">
+        <img src="${cert.image}" alt="${escapeHTML(cert.title)}" class="cert-image" loading="lazy" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\\'http://www.w3.org/2000/svg\\' viewBox=\\'0 0 400 240\\' fill=\\'none\\'><rect width=\\'400\\' height=\\'240\\' fill=\\'%23181F27\\'/><circle cx=\\'200\\' cy=\\'100\\' r=\\'45\\' fill=\\'%23202833\\' stroke=\\'%2345B0A8\\' stroke-width=\\'2\\'/><text x=\\'200\\' y=\\'108\\' font-family=\\'sans-serif\\' font-size=\\'22\\' font-weight=\\'bold\\' fill=\\'%2345B0A8\\' text-anchor=\\'middle\\'>DEPI</text><text x=\\'200\\' y=\\'180\\' font-family=\\'monospace\\' font-size=\\'13\\' fill=\\'%23CBD5E1\\' text-anchor=\\'middle\\'>${escapeHTML(cert.title)}</text></svg>'">
       </div>
 
       <div class="cert-card-content">
         <div class="cert-issuer-row">
           <span class="cert-issuer-badge">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
               <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
             </svg>
             ${escapeHTML(cert.issuer)}
@@ -352,7 +343,7 @@ function renderCertifications() {
         </div>
 
         <div class="cert-card-footer">
-          <span style="font-size: 0.85rem; color: var(--accent-purple-light); font-weight: 600;">
+          <span style="font-size: 0.85rem; color: var(--accent-primary); font-weight: 600;">
             Verified Technical Credential
           </span>
         </div>
@@ -420,7 +411,7 @@ function openCaseStudy(projectId) {
   modalBody.innerHTML = `
     <div style="display: flex; gap: 0.6rem; align-items: center; flex-wrap: wrap;">
       <span class="project-featured-badge">${escapeHTML(project.badge)}</span>
-      <span style="font-family: var(--font-mono); font-size: 0.8rem; color: var(--accent-blue-light);">${escapeHTML(project.categoryLabel)}</span>
+      <span style="font-family: var(--font-mono); font-size: 0.8rem; color: var(--accent-primary);">${escapeHTML(project.categoryLabel)}</span>
     </div>
 
     <div>
@@ -430,6 +421,7 @@ function openCaseStudy(projectId) {
       </p>
     </div>
 
+    <!-- Problem vs Solution in Modal -->
     <div class="project-problem-solution" style="margin: 0;">
       <div class="ps-card ps-problem">
         <div class="ps-card-header">
@@ -448,7 +440,7 @@ function openCaseStudy(projectId) {
 
     ${cs.architecture ? `
       <div style="background-color: var(--bg-surface-elevated); padding: 1.25rem; border-radius: var(--radius-md); border: 1px solid var(--border-color);">
-        <h4 style="font-family: var(--font-mono); font-size: 0.82rem; color: var(--accent-purple-light); text-transform: uppercase; margin-bottom: 0.4rem;">Pipeline Architecture</h4>
+        <h4 style="font-family: var(--font-mono); font-size: 0.82rem; color: var(--accent-primary); text-transform: uppercase; margin-bottom: 0.4rem;">Pipeline Architecture</h4>
         <p style="font-size: 0.92rem; color: var(--text-primary); font-family: var(--font-mono);">${escapeHTML(cs.architecture)}</p>
       </div>
     ` : ''}
@@ -459,7 +451,7 @@ function openCaseStudy(projectId) {
         <ul style="list-style: none; display: flex; flex-direction: column; gap: 0.5rem;">
           ${cs.keyAchievements.map(ach => `
             <li style="display: flex; gap: 0.6rem; font-size: 0.9rem; color: var(--text-secondary);">
-              <span style="color: var(--accent-purple); font-weight: bold;">▹</span>
+              <span style="color: var(--accent-primary); font-weight: bold;">▹</span>
               <span>${escapeHTML(ach)}</span>
             </li>
           `).join('')}
@@ -470,12 +462,7 @@ function openCaseStudy(projectId) {
     <div>
       <h4 style="font-size: 0.95rem; font-weight: 700; color: var(--text-primary); margin-bottom: 0.5rem;">Technologies & Frameworks:</h4>
       <div class="project-tech-stack" style="margin-bottom: 0;">
-        ${project.techStack.map(t => `
-          <span class="tech-tag">
-            ${getTechIcon(t)}
-            <span>${escapeHTML(t)}</span>
-          </span>
-        `).join('')}
+        ${project.techStack.map(t => `<span class="tech-tag">${escapeHTML(t)}</span>`).join('')}
       </div>
     </div>
   `;
@@ -577,49 +564,6 @@ function initContactForm() {
       }
     }, 900);
   });
-}
-
-/* ===================================================================
-   10. RICH ICON MAPPER
-   =================================================================== */
-function getTechIcon(name) {
-  const n = (name || '').toLowerCase();
-
-  // Python
-  if (n.includes('python')) {
-    return `<svg class="skill-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M11.91 0c-3.15 0-5.27 1.37-5.27 3.99v2.96h5.36v.79H4.35C1.73 7.74 0 9.87 0 13.02c0 3.16 1.74 5.09 4.35 5.09h1.75v-2.48c0-1.84 1.57-3.41 3.41-3.41h5.3v-.8H9.45c-1.39 0-2.52-1.13-2.52-2.52V6.95c0-1.39 1.13-2.52 2.52-2.52h5.1c1.39 0 2.52 1.13 2.52 2.52v1.65h1.69c1.84 0 3.41 1.57 3.41 3.41v.79H24V8.81c0-2.62-2.12-3.99-5.27-3.99h-1.57V3.99C17.16 1.37 15.06 0 11.91 0z"/></svg>`;
-  }
-  // SQL / T-SQL / Databases
-  if (n.includes('sql') || n.includes('database') || n.includes('postgres') || n.includes('mysql') || n.includes('sqlite')) {
-    return `<svg class="skill-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><ellipse cx="12" cy="5" rx="9" ry="3"></ellipse><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"></path><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path></svg>`;
-  }
-  // Pandas / NumPy / Dataframes
-  if (n.includes('pandas') || n.includes('numpy') || n.includes('data quality') || n.includes('cleaning')) {
-    return `<svg class="skill-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="3" y1="9" x2="21" y2="9"></line><line x1="3" y1="15" x2="21" y2="15"></line><line x1="9" y1="3" x2="9" y2="21"></line><line x1="15" y1="3" x2="15" y2="21"></line></svg>`;
-  }
-  // ETL / ELT / Pipelines / Kafka / Streaming
-  if (n.includes('etl') || n.includes('pipeline') || n.includes('streaming') || n.includes('kafka')) {
-    return `<svg class="skill-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline></svg>`;
-  }
-  // Data Warehousing / Star Schema / Modeling
-  if (n.includes('warehous') || n.includes('schema') || n.includes('model') || n.includes('star')) {
-    return `<svg class="skill-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"></circle><circle cx="12" cy="3" r="2"></circle><circle cx="12" cy="21" r="2"></circle><circle cx="3" cy="12" r="2"></circle><circle cx="21" cy="12" r="2"></circle><line x1="12" y1="5" x2="12" y2="9"></line><line x1="12" y1="15" x2="12" y2="19"></line><line x1="5" y1="12" x2="9" y2="12"></line><line x1="15" y1="12" x2="19" y2="12"></line></svg>`;
-  }
-  // Git / GitHub
-  if (n.includes('git')) {
-    return `<svg class="skill-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>`;
-  }
-  // Linux / Terminal / Bash
-  if (n.includes('linux') || n.includes('bash') || n.includes('code') || n.includes('jupyter') || n.includes('vs code')) {
-    return `<svg class="skill-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="4 17 10 11 4 5"></polyline><line x1="12" y1="19" x2="20" y2="19"></line></svg>`;
-  }
-  // Charts / Visualization
-  if (n.includes('plot') || n.includes('visual') || n.includes('seaborn')) {
-    return `<svg class="skill-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg>`;
-  }
-
-  // Default friendly spark/check icon
-  return `<svg class="skill-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>`;
 }
 
 // XSS Prevention Utility
