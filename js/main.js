@@ -99,15 +99,21 @@ function renderHeroAndPersonal() {
   // Contact Info & Footer Socials
   const emailVal = document.getElementById('contact-email-val');
   const emailLink = document.getElementById('contact-email-link');
+  const linkedinLink = document.getElementById('contact-linkedin-link');
+  const linkedinVal = document.getElementById('contact-linkedin-val');
   const ghLink = document.getElementById('contact-github-link');
   const footerGh = document.getElementById('footer-github-link');
+  const footerLinkedin = document.getElementById('footer-linkedin-link');
   const footerEmail = document.getElementById('footer-email-link');
 
-  if (emailVal) emailVal.textContent = p.email;
-  if (emailLink) emailLink.href = `mailto:${p.email}`;
-  if (ghLink) ghLink.href = p.github;
-  if (footerGh) footerGh.href = p.github;
-  if (footerEmail) footerEmail.href = `mailto:${p.email}`;
+  if (emailVal && p.email) emailVal.textContent = p.email;
+  if (emailLink && p.email) emailLink.href = `mailto:${p.email}`;
+  if (linkedinLink && p.linkedin) linkedinLink.href = p.linkedin;
+  if (linkedinVal && p.linkedin) linkedinVal.textContent = p.linkedin.replace(/^https?:\/\/(www\.)?/, '');
+  if (ghLink && p.github) ghLink.href = p.github;
+  if (footerGh && p.github) footerGh.href = p.github;
+  if (footerLinkedin && p.linkedin) footerLinkedin.href = p.linkedin;
+  if (footerEmail && p.email) footerEmail.href = `mailto:${p.email}`;
 }
 
 /* ===================================================================
