@@ -371,11 +371,20 @@ function renderEducation() {
   container.innerHTML = PORTFOLIO_DATA.educationList.map(edu => `
     <div class="education-credential-card">
       <div class="credential-crest-col">
-        <div class="education-crest-box">
-          <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M22 10v6M2 10l10-5 10 5-10 5z"></path>
-            <path d="M6 12v5c3 3 9 3 12 0v-5"></path>
-          </svg>
+        <div class="education-crest-box" style="background: #fff; padding: 6px; overflow: hidden;">
+          ${edu.logo
+            ? `<img src="${edu.logo}" alt="${escapeHTML(edu.institution)} logo"
+                 style="width: 100%; height: 100%; object-fit: contain; border-radius: 8px;"
+                 onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+               <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#6366f1" stroke-width="2" style="display:none; align-items:center; justify-content:center;">
+                 <path d="M22 10v6M2 10l10-5 10 5-10 5z"></path>
+                 <path d="M6 12v5c3 3 9 3 12 0v-5"></path>
+               </svg>`
+            : `<svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                 <path d="M22 10v6M2 10l10-5 10 5-10 5z"></path>
+                 <path d="M6 12v5c3 3 9 3 12 0v-5"></path>
+               </svg>`
+          }
         </div>
         <span class="credential-year-pill">${escapeHTML(edu.period)}</span>
       </div>

@@ -294,6 +294,7 @@ const PORTFOLIO_DATA = {
       period: "2025 – Present",
       level: "Undergraduate Degree — Year 2",
       location: "Giza / Cairo, Egypt",
+      logo: "assets/images/zewail-logo.jpg",
       highlights: [
         "Rigorous coursework in computational systems, discrete mathematics, network architectures, and algorithms.",
         "Active member in competitive programming and university technical communities."
@@ -305,6 +306,7 @@ const PORTFOLIO_DATA = {
       period: "Graduated 2025",
       level: "STEM High School Diploma",
       location: "Assiut, Egypt",
+      logo: "assets/images/assiut-stem-logo.jpg",
       honor: "Ranked 1st in the Mathematics Track in Grade 12",
       highlights: [
         "Ranked 1st in the Mathematics Track across Grade 12, demonstrating exceptional quantitative and analytical problem solving.",
