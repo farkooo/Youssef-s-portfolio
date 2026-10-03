@@ -21,15 +21,15 @@
   <meta property="og:description"
     content="I build reliable data pipelines and transform messy data into clean, structured data businesses can trust.">
 
-  <!-- Favicon (Database Cylinder SVG) -->
+  <!-- Favicon (Blue & Purple Gradient Cylinder) -->
   <link rel="icon" type="image/svg+xml"
-    href="data:image/svg+xml,&lt;svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2345B0A8' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'&gt;&lt;ellipse cx='12' cy='5' rx='9' ry='3'/&gt;&lt;path d='M21 12c0 1.66-4 3-9 3s-9-1.34-9-3'/&gt;&lt;path d='M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5'/&gt;&lt;/svg&gt;">
+    href="data:image/svg+xml,&lt;svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%238B5CF6' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'&gt;&lt;ellipse cx='12' cy='5' rx='9' ry='3'/&gt;&lt;path d='M21 12c0 1.66-4 3-9 3s-9-1.34-9-3'/&gt;&lt;path d='M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5'/&gt;&lt;/svg&gt;">
 
   <!-- Google Fonts: Inter & JetBrains Mono -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap"
     rel="stylesheet">
 
   <!-- Stylesheet -->
@@ -46,7 +46,7 @@
       <!-- Brand Logo -->
       <a href="#home" class="brand-logo" aria-label="Youssef Elfarouk — Home">
         <div class="brand-icon">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
             stroke-linecap="round" stroke-linejoin="round">
             <ellipse cx="12" cy="5" rx="9" ry="3"></ellipse>
             <path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"></path>
@@ -124,17 +124,34 @@
 
   <main id="main-content">
     <!-- ======================================================================
-         2. Hero Section (Executive Presentation)
+         2. Hero Section (Blue & Purple Visual Architecture)
          ====================================================================== -->
     <section class="hero-section" id="home">
       <div class="container hero-grid">
         <!-- Left: Intro & Value Proposition -->
         <div class="hero-content">
-          <h1 class="hero-title" id="hero-title">Youssef Elfarouk</h1>
-          <div class="hero-role" id="hero-role">Junior Data Engineer</div>
+          <!-- Friendly Welcome Tag -->
+          <div class="friendly-badge">
+            <span class="wave-hand">👋</span>
+            <span>Hi there, I'm Youssef!</span>
+          </div>
+
+          <h1 class="hero-title" id="hero-title">
+            Transforming Messy Data Into <span class="gradient-text">Clean Intelligence</span>
+          </h1>
+          
+          <div class="hero-role" id="hero-role">
+            <span style="display: inline-flex; align-items: center; gap: 0.4rem;">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="16 18 22 12 16 6"></polyline>
+                <polyline points="8 6 2 12 8 18"></polyline>
+              </svg>
+              Junior Data Engineer &amp; Communication &amp; Information Engineering Student (Year 2)
+            </span>
+          </div>
 
           <p class="hero-description" id="hero-description">
-            I build reliable data pipelines that turn messy data into clean, structured information businesses can trust.
+            I build reliable data pipelines and scalable warehousing architectures that turn messy, fragmented records into structured, high-quality information businesses can depend on.
           </p>
 
           <div class="hero-actions">
@@ -143,7 +160,7 @@
                 stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                 <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path>
               </svg>
-              <span>View My Projects</span>
+              <span>View Case Studies</span>
             </a>
 
             <a href="assets/cv/Youssef_Elfarouk_CV.pdf" class="btn btn-secondary" id="btn-download-cv"
@@ -158,12 +175,10 @@
             </a>
 
             <a href="#contact" class="btn btn-outline" aria-label="Let's Work Together">
-              <span>Let's Work Together</span>
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                <line x1="5" y1="12" x2="19" y2="12"></line>
-                <polyline points="12 5 19 12 12 19"></polyline>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
               </svg>
+              <span>Let's Talk</span>
             </a>
           </div>
 
@@ -171,19 +186,12 @@
           <div class="hero-tech-pills">
             <span class="hero-tech-label">Core Focus:</span>
             <div class="hero-tech-list" id="hero-tech-list">
-              <span class="tech-pill">SQL</span>
-              <span class="tech-pill">Python</span>
-              <span class="tech-pill">ETL / ELT</span>
-              <span class="tech-pill">Data Cleaning</span>
-              <span class="tech-pill">Data Quality</span>
-              <span class="tech-pill">Data Warehousing</span>
-              <span class="tech-pill">Dimensional Modeling</span>
-              <span class="tech-pill">Star Schema</span>
+              <!-- Rendered dynamically -->
             </div>
           </div>
         </div>
 
-        <!-- Right: Profile Visual Frame -->
+        <!-- Right: Profile Visual Frame with Purple/Blue Halo -->
         <div class="hero-image-wrapper">
           <div class="hero-avatar-showcase">
             <div class="hero-avatar-frame">
@@ -198,7 +206,7 @@
     </section>
 
     <!-- ======================================================================
-         3. About Section (2-Column Architecture)
+         3. About Section (2-Column Architecture with Friendly Pillars)
          ====================================================================== -->
     <section class="about-section" id="about">
       <div class="container">
@@ -217,7 +225,7 @@
           <div class="about-pillars" id="about-pillars">
             <div class="about-pillar-card">
               <div class="pillar-icon-box">
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
                   stroke-linecap="round" stroke-linejoin="round">
                   <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
                   <polyline points="9 12 11 14 15 10"></polyline>
@@ -231,7 +239,7 @@
 
             <div class="about-pillar-card">
               <div class="pillar-icon-box">
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
                   stroke-linecap="round" stroke-linejoin="round">
                   <ellipse cx="12" cy="5" rx="9" ry="3"></ellipse>
                   <path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"></path>
@@ -246,9 +254,9 @@
 
             <div class="about-pillar-card">
               <div class="pillar-icon-box">
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
                   stroke-linecap="round" stroke-linejoin="round">
-                  <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
+                  <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
                 </svg>
               </div>
               <div class="pillar-content">
@@ -376,7 +384,7 @@
           <div class="education-credential-card">
             <div class="credential-crest-col">
               <div class="education-crest-box">
-                <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
                   stroke-linecap="round" stroke-linejoin="round">
                   <path d="M22 10v6M2 10l10-5 10 5-10 5z"></path>
                   <path d="M6 12v5c3 3 9 3 12 0v-5"></path>
@@ -395,7 +403,7 @@
 
               <div class="education-meta-row">
                 <span class="education-period">
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                     <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
                     <line x1="16" y1="2" x2="16" y2="6"></line>
                     <line x1="8" y1="2" x2="8" y2="6"></line>
@@ -405,7 +413,7 @@
                 </span>
                 <span class="education-divider">•</span>
                 <span class="education-location">
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                     <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
                     <circle cx="12" cy="10" r="3"></circle>
                   </svg>
@@ -439,7 +447,7 @@
         <div class="certifications-group">
           <div class="cert-group-header">
             <div class="cert-group-badge">
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
                 stroke-linecap="round" stroke-linejoin="round">
                 <path d="M22 10v6M2 10l10-5 10 5-10 5z"></path>
                 <path d="M6 12v5c3 3 9 3 12 0v-5"></path>
@@ -451,7 +459,7 @@
           <div class="training-card">
             <div class="training-card-header">
               <div class="training-logo-wrapper">
-                <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                   <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
                   <polyline points="2 17 12 22 22 17"></polyline>
                   <polyline points="2 12 12 17 22 12"></polyline>
@@ -498,7 +506,7 @@
         <div class="certifications-group cert-spacing-top">
           <div class="cert-group-header">
             <div class="cert-group-badge">
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
                 stroke-linecap="round" stroke-linejoin="round">
                 <circle cx="12" cy="8" r="7"></circle>
                 <polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"></polyline>
@@ -542,7 +550,7 @@
             <div class="contact-channels-list">
               <a href="mailto:youssef.elfarouk.data@gmail.com" class="contact-channel-item" id="contact-email-link">
                 <div class="channel-icon-box">
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                     <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
                     <polyline points="22,6 12,13 2,6"></polyline>
                   </svg>
@@ -556,7 +564,7 @@
               <a href="https://github.com/youssefelfarouk" target="_blank" rel="noopener noreferrer"
                 class="contact-channel-item" id="contact-github-link">
                 <div class="channel-icon-box">
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
                     <path
                       d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z" />
                   </svg>
@@ -569,7 +577,7 @@
 
               <div class="contact-channel-item">
                 <div class="channel-icon-box">
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                     <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
                     <circle cx="12" cy="10" r="3"></circle>
                   </svg>
