@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 340" width="100%" height="100%">
+  <defs>
+    <linearGradient id="scBgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0a0d14"/>
+      <stop offset="100%" stop-color="#141a29"/>
+    </linearGradient>
+    <linearGradient id="scBluePurple" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#3b82f6"/>
+      <stop offset="100%" stop-color="#8b5cf6"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="600" height="340" fill="url(#scBgGrad)" rx="12"/>
+
+  <!-- Title Label -->
+  <text x="30" y="40" fill="#f8fafc" font-family="'Inter', sans-serif" font-weight="700" font-size="14">Automated Web Data Extraction &amp; Ingestion Pipeline</text>
+  <text x="30" y="58" fill="#64748b" font-family="'JetBrains Mono', monospace" font-size="11">Python · Requests · BeautifulSoup · Relational Database Loading</text>
+
+  <!-- Step 1: Web Source -->
+  <rect x="30" y="105" width="115" height="135" rx="8" fill="#161d30" stroke="#3b82f6" stroke-width="1.5"/>
+  <text x="87" y="132" fill="#60a5fa" font-family="'JetBrains Mono', monospace" font-weight="700" font-size="11" text-anchor="middle">WEB TARGETS</text>
+  <text x="87" y="155" fill="#94a3b8" font-family="'Inter', sans-serif" font-size="10" text-anchor="middle">Online Listings</text>
+  <text x="87" y="175" fill="#cbd5e1" font-family="'JetBrains Mono', monospace" font-size="9" text-anchor="middle">Dynamic HTML</text>
+  <text x="87" y="195" fill="#38bdf8" font-family="'JetBrains Mono', monospace" font-size="9" text-anchor="middle">HTTP GET / API</text>
+  <text x="87" y="215" fill="#94a3b8" font-family="'Inter', sans-serif" font-size="9" text-anchor="middle">Rate Limiting</text>
+
+  <!-- Arrow 1 -->
+  <path d="M145 170 L175 170" stroke="#6366f1" stroke-width="2" fill="none"/>
+  <polygon points="178,170 171,166 171,174" fill="#6366f1"/>
+
+  <!-- Step 2: Extraction & Parsing -->
+  <rect x="180" y="90" width="165" height="165" rx="10" fill="#161d30" stroke="url(#scBluePurple)" stroke-width="2"/>
+  <rect x="190" y="100" width="145" height="24" rx="4" fill="url(#scBluePurple)"/>
+  <text x="262" y="116" fill="#ffffff" font-family="'JetBrains Mono', monospace" font-weight="700" font-size="10" text-anchor="middle">EXTRACTION ENGINE</text>
+  <text x="262" y="145" fill="#38bdf8" font-family="'Inter', sans-serif" font-weight="600" font-size="10" text-anchor="middle">BeautifulSoup Parser</text>
+  <text x="262" y="165" fill="#cbd5e1" font-family="'JetBrains Mono', monospace" font-size="9" text-anchor="middle">Tag &amp; Class Filtering</text>
+  <text x="262" y="185" fill="#cbd5e1" font-family="'JetBrains Mono', monospace" font-size="9" text-anchor="middle">Regex Text Sanitizer</text>
+  <text x="262" y="205" fill="#a78bfa" font-family="'JetBrains Mono', monospace" font-size="9" text-anchor="middle">Data Type Casting</text>
+  <text x="262" y="235" fill="#34d399" font-family="'JetBrains Mono', monospace" font-size="9" text-anchor="middle">Automated Retry Logic</text>
+
+  <!-- Arrow 2 -->
+  <path d="M345 170 L395 170" stroke="#8b5cf6" stroke-width="2" fill="none"/>
+  <polygon points="398,170 391,166 391,174" fill="#8b5cf6"/>
+
+  <!-- Step 3: Target Store -->
+  <rect x="400" y="105" width="170" height="135" rx="8" fill="#161d30" stroke="#8b5cf6" stroke-width="1.5"/>
+  <text x="485" y="132" fill="#c084fc" font-family="'JetBrains Mono', monospace" font-weight="700" font-size="11" text-anchor="middle">STRUCTURED STORE</text>
+  <text x="485" y="155" fill="#94a3b8" font-family="'Inter', sans-serif" font-size="10" text-anchor="middle">Relational Schema</text>
+  <line x1="415" y1="168" x2="555" y2="168" stroke="#2a3449" stroke-width="1"/>
+  <text x="485" y="188" fill="#34d399" font-family="'JetBrains Mono', monospace" font-size="10" text-anchor="middle">SQLite / SQL Server</text>
+  <text x="485" y="208" fill="#cbd5e1" font-family="'JetBrains Mono', monospace" font-size="10" text-anchor="middle">Clean CSV / Excel</text>
+  <text x="485" y="228" fill="#60a5fa" font-family="'JetBrains Mono', monospace" font-size="9" text-anchor="middle">[Analytics Ready]</text>
+
+  <!-- Footer Tag -->
+  <text x="300" y="295" fill="#818cf8" font-family="'JetBrains Mono', monospace" font-size="11" text-anchor="middle">Custom Automated Python Web Scraping for Freelance Market Analysis</text>
+</svg>

@@ -15,10 +15,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
   initTheme();
   renderHeroAndPersonal();
+  renderAbout();
   renderProjects();
   renderServices();
   renderSkills();
-  renderCertifications();
+  renderEducation();
+  renderLeadership();
   initContactForm();
   initNavigation();
   initCaseStudyModal();
@@ -60,11 +62,20 @@ function renderHeroAndPersonal() {
   const footerYear = document.getElementById('footer-year');
 
   if (navBrand) navBrand.textContent = p.name;
-  if (heroTitle) heroTitle.textContent = p.name;
-  if (heroRole) heroRole.textContent = p.role;
+  if (heroRole) {
+    heroRole.innerHTML = `
+      <span style="display: inline-flex; align-items: center; gap: 0.45rem;">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M22 10v6M2 10l10-5 10 5-10 5z"></path>
+          <path d="M6 12v5c3 3 9 3 12 0v-5"></path>
+        </svg>
+        ${escapeHTML(p.role)} @ Zewail City
+      </span>
+    `;
+  }
   if (heroDesc) heroDesc.textContent = p.headline;
   if (cvBtn && p.cvUrl) cvBtn.href = p.cvUrl;
-  if (footerName) footerName.textContent = p.name;
+  if (footerName) footerName.textContent = p.fullName || p.name;
   if (footerYear) footerYear.textContent = new Date().getFullYear();
 
   // Avatar / Profile photo with fallback
@@ -97,6 +108,45 @@ function renderHeroAndPersonal() {
   if (ghLink) ghLink.href = p.github;
   if (footerGh) footerGh.href = p.github;
   if (footerEmail) footerEmail.href = `mailto:${p.email}`;
+}
+
+/* ===================================================================
+   2.5. ABOUT SECTION (Engineering Pillars & Editorial Narrative)
+   =================================================================== */
+function renderAbout() {
+  const pillarsContainer = document.getElementById('about-pillars');
+  const textContainer = document.getElementById('about-text-content');
+  if (!PORTFOLIO_DATA.about) return;
+
+  // Render Pillars
+  if (pillarsContainer && PORTFOLIO_DATA.about.pillars) {
+    const iconMap = {
+      cpu: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="4" width="16" height="16" rx="2"></rect><rect x="9" y="9" width="6" height="6"></rect><line x1="9" y1="1" x2="9" y2="4"></line><line x1="15" y1="1" x2="15" y2="4"></line><line x1="9" y1="20" x2="9" y2="23"></line><line x1="15" y1="20" x2="15" y2="23"></line><line x1="20" y1="9" x2="23" y2="9"></line><line x1="20" y1="14" x2="23" y2="14"></line><line x1="1" y1="9" x2="4" y2="9"></line><line x1="1" y1="14" x2="4" y2="14"></line></svg>`,
+      database: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><ellipse cx="12" cy="5" rx="9" ry="3"></ellipse><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"></path><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path></svg>`,
+      code: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>`
+    };
+
+    pillarsContainer.innerHTML = PORTFOLIO_DATA.about.pillars.map(pillar => `
+      <div class="about-pillar-card">
+        <div class="pillar-icon-box">
+          ${iconMap[pillar.icon] || iconMap.cpu}
+        </div>
+        <div>
+          <h3 class="pillar-title">${escapeHTML(pillar.title)}</h3>
+          <p class="pillar-text">${escapeHTML(pillar.description)}</p>
+        </div>
+      </div>
+    `).join('');
+  }
+
+  // Render Editorial Narrative
+  if (textContainer && PORTFOLIO_DATA.about.editorial) {
+    const ed = PORTFOLIO_DATA.about.editorial;
+    textContainer.innerHTML = `
+      <p class="about-lead">${escapeHTML(ed.lead)}</p>
+      ${ed.paragraphs.map(p => `<p>${escapeHTML(p)}</p>`).join('')}
+    `;
+  }
 }
 
 /* ===================================================================
@@ -312,40 +362,104 @@ function renderSkills() {
 }
 
 /* ===================================================================
-   6. CERTIFICATIONS & TRAINING
+   6. ACADEMIC EDUCATION (Zewail City & Assiut STEM School)
    =================================================================== */
-function renderCertifications() {
-  const container = document.getElementById('certifications-container');
-  if (!container || !PORTFOLIO_DATA.certifications) return;
+function renderEducation() {
+  const container = document.getElementById('education-container');
+  if (!container || !PORTFOLIO_DATA.educationList) return;
 
-  container.innerHTML = PORTFOLIO_DATA.certifications.map(cert => `
-    <div class="certification-card">
-      <div class="cert-image-container">
-        <img src="${cert.image}" alt="${escapeHTML(cert.title)}" class="cert-image" loading="lazy" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\\'http://www.w3.org/2000/svg\\' viewBox=\\'0 0 400 240\\' fill=\\'none\\'><rect width=\\'400\\' height=\\'240\\' fill=\\'%23181F27\\'/><circle cx=\\'200\\' cy=\\'100\\' r=\\'45\\' fill=\\'%23202833\\' stroke=\\'%2345B0A8\\' stroke-width=\\'2\\'/><text x=\\'200\\' y=\\'108\\' font-family=\\'sans-serif\\' font-size=\\'22\\' font-weight=\\'bold\\' fill=\\'%2345B0A8\\' text-anchor=\\'middle\\'>DEPI</text><text x=\\'200\\' y=\\'180\\' font-family=\\'monospace\\' font-size=\\'13\\' fill=\\'%23CBD5E1\\' text-anchor=\\'middle\\'>${escapeHTML(cert.title)}</text></svg>'">
+  container.innerHTML = PORTFOLIO_DATA.educationList.map(edu => `
+    <div class="education-credential-card">
+      <div class="credential-crest-col">
+        <div class="education-crest-box">
+          <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M22 10v6M2 10l10-5 10 5-10 5z"></path>
+            <path d="M6 12v5c3 3 9 3 12 0v-5"></path>
+          </svg>
+        </div>
+        <span class="credential-year-pill">${escapeHTML(edu.period)}</span>
       </div>
 
-      <div class="cert-card-content">
-        <div class="cert-issuer-row">
-          <span class="cert-issuer-badge">
-            <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
-              <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+      <div class="credential-info-col" style="flex-grow: 1;">
+        <span class="credential-level-badge">${escapeHTML(edu.level)}</span>
+        <h3 class="education-degree">${escapeHTML(edu.degree)}</h3>
+        <div class="education-faculty">${escapeHTML(edu.institution)}</div>
+
+        ${edu.honor ? `
+          <div style="display: inline-flex; align-items: center; gap: 0.45rem; margin-top: 0.5rem; background: var(--accent-gold-soft); border: 1px solid var(--accent-gold-border); padding: 0.35rem 0.85rem; border-radius: var(--radius-full); width: fit-content;">
+            <span style="font-size: 1rem;">🏆</span>
+            <span style="color: var(--accent-gold); font-size: 0.88rem; font-weight: 700;">${escapeHTML(edu.honor)}</span>
+          </div>
+        ` : ''}
+
+        <div class="education-meta-row">
+          <span class="education-period">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="10"></circle>
+              <polyline points="12 6 12 12 16 14"></polyline>
             </svg>
-            ${escapeHTML(cert.issuer)}
+            ${escapeHTML(edu.period)}
           </span>
-          <span class="cert-date">${escapeHTML(cert.date)}</span>
+          <span class="education-location">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+              <circle cx="12" cy="10" r="3"></circle>
+            </svg>
+            ${escapeHTML(edu.location)}
+          </span>
         </div>
 
-        <h3 class="cert-title">${escapeHTML(cert.title)}</h3>
-        <p class="cert-description">${escapeHTML(cert.description)}</p>
+        ${edu.highlights && edu.highlights.length > 0 ? `
+          <ul style="margin-top: 1rem; display: flex; flex-direction: column; gap: 0.45rem; list-style: none;">
+            ${edu.highlights.map(h => `
+              <li style="font-size: 0.93rem; color: var(--text-secondary); display: flex; gap: 0.5rem; align-items: flex-start;">
+                <span style="color: var(--accent-blue-light); font-weight: bold; line-height: 1.4;">▹</span>
+                <span>${escapeHTML(h)}</span>
+              </li>
+            `).join('')}
+          </ul>
+        ` : ''}
+      </div>
+    </div>
+  `).join('');
+}
 
-        <div class="cert-topics-list">
-          ${cert.topics.map(t => `<span class="cert-topic-tag">${escapeHTML(t)}</span>`).join('')}
+/* ===================================================================
+   7. LEADERSHIP, INITIATIVES & COMPETITIONS
+   =================================================================== */
+function renderLeadership() {
+  const container = document.getElementById('leadership-container');
+  if (!container || !PORTFOLIO_DATA.leadershipAndAchievements) return;
+
+  const iconMap = {
+    award: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="7"></circle><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"></polyline></svg>`,
+    users: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>`,
+    code: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>`,
+    cpu: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="4" width="16" height="16" rx="2"></rect><rect x="9" y="9" width="6" height="6"></rect><line x1="9" y1="1" x2="9" y2="4"></line><line x1="15" y1="1" x2="15" y2="4"></line><line x1="9" y1="20" x2="9" y2="23"></line><line x1="15" y1="20" x2="15" y2="23"></line><line x1="20" y1="9" x2="23" y2="9"></line><line x1="20" y1="14" x2="23" y2="14"></line><line x1="1" y1="9" x2="4" y2="9"></line><line x1="1" y1="14" x2="4" y2="14"></line></svg>`
+  };
+
+  container.innerHTML = PORTFOLIO_DATA.leadershipAndAchievements.map(item => `
+    <div class="training-card" style="display: flex; flex-direction: column; justify-content: space-between;">
+      <div>
+        <div class="training-card-header">
+          <div class="training-logo-wrapper">
+            ${iconMap[item.icon] || iconMap.award}
+          </div>
+          <div class="training-title-block">
+            <div class="training-header-top">
+              <h3 class="training-title">${escapeHTML(item.title)}</h3>
+              <span class="training-badge-status">
+                <span class="training-pulse-dot"></span>
+                ${escapeHTML(item.badge)}
+              </span>
+            </div>
+            <div class="training-subtitle">
+              ${escapeHTML(item.issuer)} · <span style="color: var(--text-muted); font-size: 0.85rem;">${escapeHTML(item.date)}</span>
+            </div>
+          </div>
         </div>
-
-        <div class="cert-card-footer">
-          <span style="font-size: 0.85rem; color: var(--accent-primary); font-weight: 600;">
-            Verified Technical Credential
-          </span>
+        <div class="training-body">
+          <p class="training-desc">${escapeHTML(item.description)}</p>
         </div>
       </div>
     </div>

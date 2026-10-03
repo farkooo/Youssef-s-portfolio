@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 340" width="100%" height="100%">
+  <defs>
+    <linearGradient id="dwhBgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0a0d14"/>
+      <stop offset="100%" stop-color="#141a29"/>
+    </linearGradient>
+    <linearGradient id="bronzeGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#b45309"/>
+      <stop offset="100%" stop-color="#d97706"/>
+    </linearGradient>
+    <linearGradient id="silverGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#3b82f6"/>
+      <stop offset="100%" stop-color="#60a5fa"/>
+    </linearGradient>
+    <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#7c3aed"/>
+      <stop offset="100%" stop-color="#a855f7"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="600" height="340" fill="url(#dwhBgGrad)" rx="12"/>
+
+  <!-- Title Label -->
+  <text x="30" y="40" fill="#f8fafc" font-family="'Inter', sans-serif" font-weight="700" font-size="14">Enterprise Data Warehouse · Medallion Architecture</text>
+  <text x="30" y="58" fill="#64748b" font-family="'JetBrains Mono', monospace" font-size="11">SQL Server · T-SQL Stored Procedures · Star Schema</text>
+
+  <!-- Flow Arrows -->
+  <g stroke="#4f46e5" stroke-width="2.5" fill="none" stroke-linecap="round">
+    <path d="M170 170 L210 170"/>
+    <path d="M350 170 L390 170"/>
+  </g>
+  <polygon points="214,170 206,165 206,175" fill="#4f46e5"/>
+  <polygon points="394,170 386,165 386,175" fill="#4f46e5"/>
+
+  <!-- Layer 1: Bronze (Raw Staging) -->
+  <rect x="30" y="100" width="140" height="150" rx="10" fill="#161d30" stroke="#d97706" stroke-width="1.5"/>
+  <rect x="42" y="112" width="116" height="24" rx="4" fill="url(#bronzeGrad)"/>
+  <text x="100" y="128" fill="#ffffff" font-family="'JetBrains Mono', monospace" font-weight="700" font-size="11" text-anchor="middle">BRONZE LAYER</text>
+  <text x="100" y="155" fill="#94a3b8" font-family="'Inter', sans-serif" font-size="11" text-anchor="middle">Raw Ingestion</text>
+  <line x1="45" y1="168" x2="155" y2="168" stroke="#2a3449" stroke-width="1"/>
+  <text x="100" y="188" fill="#cbd5e1" font-family="'JetBrains Mono', monospace" font-size="10" text-anchor="middle">CRM Files (.csv)</text>
+  <text x="100" y="206" fill="#cbd5e1" font-family="'JetBrains Mono', monospace" font-size="10" text-anchor="middle">ERP Transactions</text>
+  <text x="100" y="228" fill="#f59e0b" font-family="'JetBrains Mono', monospace" font-size="9" text-anchor="middle">[Raw Schema]</text>
+
+  <!-- Layer 2: Silver (Conformed & Cleansed) -->
+  <rect x="210" y="100" width="140" height="150" rx="10" fill="#161d30" stroke="#3b82f6" stroke-width="1.5"/>
+  <rect x="222" y="112" width="116" height="24" rx="4" fill="url(#silverGrad)"/>
+  <text x="280" y="128" fill="#ffffff" font-family="'JetBrains Mono', monospace" font-weight="700" font-size="11" text-anchor="middle">SILVER LAYER</text>
+  <text x="280" y="155" fill="#94a3b8" font-family="'Inter', sans-serif" font-size="11" text-anchor="middle">T-SQL Cleansed</text>
+  <line x1="225" y1="168" x2="335" y2="168" stroke="#2a3449" stroke-width="1"/>
+  <text x="280" y="188" fill="#60a5fa" font-family="'JetBrains Mono', monospace" font-size="10" text-anchor="middle">De-duplication</text>
+  <text x="280" y="206" fill="#60a5fa" font-family="'JetBrains Mono', monospace" font-size="10" text-anchor="middle">Type Cast &amp; Nulls</text>
+  <text x="280" y="228" fill="#34d399" font-family="'JetBrains Mono', monospace" font-size="9" text-anchor="middle">[Audit Verified]</text>
+
+  <!-- Layer 3: Gold (Star Schema Marts) -->
+  <rect x="390" y="100" width="180" height="150" rx="10" fill="#161d30" stroke="#8b5cf6" stroke-width="1.5"/>
+  <rect x="402" y="112" width="156" height="24" rx="4" fill="url(#goldGrad)"/>
+  <text x="480" y="128" fill="#ffffff" font-family="'JetBrains Mono', monospace" font-weight="700" font-size="11" text-anchor="middle">GOLD / STAR SCHEMA</text>
+  <text x="480" y="155" fill="#94a3b8" font-family="'Inter', sans-serif" font-size="11" text-anchor="middle">Analytics-Ready</text>
+  <line x1="405" y1="168" x2="555" y2="168" stroke="#2a3449" stroke-width="1"/>
+  <text x="480" y="188" fill="#c084fc" font-family="'JetBrains Mono', monospace" font-size="10" text-anchor="middle">Fact_Sales (Surrogate)</text>
+  <text x="480" y="206" fill="#c084fc" font-family="'JetBrains Mono', monospace" font-size="10" text-anchor="middle">Dim_Customer, Product</text>
+  <text x="480" y="228" fill="#a78bfa" font-family="'JetBrains Mono', monospace" font-size="9" text-anchor="middle">[BI &amp; Reporting Ready]</text>
+
+  <!-- Footer Tag -->
+  <text x="300" y="295" fill="#818cf8" font-family="'JetBrains Mono', monospace" font-size="11" text-anchor="middle">Idempotent Stored Procedures with ACID Transaction Rollbacks</text>
+</svg>

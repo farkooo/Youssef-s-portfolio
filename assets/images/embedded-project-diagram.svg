@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 340" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0a0d14"/>
+      <stop offset="100%" stop-color="#141a29"/>
+    </linearGradient>
+    <linearGradient id="bluePurple" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#3b82f6"/>
+      <stop offset="100%" stop-color="#8b5cf6"/>
+    </linearGradient>
+    <linearGradient id="chipGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1e2638"/>
+      <stop offset="100%" stop-color="#121722"/>
+    </linearGradient>
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="8" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+  </defs>
+
+  <rect width="600" height="340" fill="url(#bgGrad)" rx="12"/>
+
+  <!-- Subtle Circuit Grid Pattern -->
+  <g opacity="0.08" stroke="#8b5cf6" stroke-width="1">
+    <path d="M0 40 H600 M0 100 H600 M0 160 H600 M0 220 H600 M0 280 H600"/>
+    <path d="M60 0 V340 M140 0 V340 M220 0 V340 M300 0 V340 M380 0 V340 M460 0 V340 M540 0 V340"/>
+  </g>
+
+  <!-- Circuit Trace Lines -->
+  <path d="M120 170 L190 170 M390 170 L480 170" stroke="url(#bluePurple)" stroke-width="3" stroke-linecap="round"/>
+  <circle cx="190" cy="170" r="4" fill="#3b82f6" filter="url(#glow)"/>
+  <circle cx="390" cy="170" r="4" fill="#8b5cf6" filter="url(#glow)"/>
+
+  <!-- Feedback trace -->
+  <path d="M480 200 C480 270, 120 270, 120 200" fill="none" stroke="#6366f1" stroke-width="2" stroke-dasharray="6,4" opacity="0.7"/>
+  <text x="300" y="278" fill="#818cf8" font-family="'JetBrains Mono', monospace" font-size="11" text-anchor="middle">Closed-Loop Feedback &amp; Interrupt Handling</text>
+
+  <!-- Left: Sensor Array Node -->
+  <rect x="40" y="125" width="100" height="90" rx="8" fill="#161d30" stroke="#3b82f6" stroke-width="1.5"/>
+  <text x="90" y="155" fill="#60a5fa" font-family="'Inter', sans-serif" font-weight="700" font-size="12" text-anchor="middle">SENSORS</text>
+  <text x="90" y="175" fill="#94a3b8" font-family="'Inter', sans-serif" font-size="10" text-anchor="middle">Analog / Digital</text>
+  <text x="90" y="195" fill="#34d399" font-family="'JetBrains Mono', monospace" font-size="10" text-anchor="middle">Telemetry</text>
+
+  <!-- Center: Microcontroller Core -->
+  <rect x="210" y="90" width="180" height="160" rx="10" fill="url(#chipGrad)" stroke="url(#bluePurple)" stroke-width="2" filter="url(#glow)"/>
+  <rect x="220" y="100" width="160" height="140" rx="6" fill="#101522" stroke="#2a3449" stroke-width="1"/>
+
+  <!-- Chip Pins -->
+  <g fill="#475569">
+    <rect x="240" y="84" width="8" height="6" rx="1"/><rect x="260" y="84" width="8" height="6" rx="1"/><rect x="280" y="84" width="8" height="6" rx="1"/><rect x="300" y="84" width="8" height="6" rx="1"/><rect x="320" y="84" width="8" height="6" rx="1"/><rect x="340" y="84" width="8" height="6" rx="1"/>
+    <rect x="240" y="250" width="8" height="6" rx="1"/><rect x="260" y="250" width="8" height="6" rx="1"/><rect x="280" y="250" width="8" height="6" rx="1"/><rect x="300" y="250" width="8" height="6" rx="1"/><rect x="320" y="250" width="8" height="6" rx="1"/><rect x="340" y="250" width="8" height="6" rx="1"/>
+  </g>
+
+  <text x="300" y="135" fill="#f8fafc" font-family="'Inter', sans-serif" font-weight="800" font-size="14" text-anchor="middle">ARDUINO / MCU</text>
+  <text x="300" y="155" fill="#a78bfa" font-family="'JetBrains Mono', monospace" font-size="11" text-anchor="middle">C++ Control Logic</text>
+
+  <rect x="235" y="170" width="130" height="24" rx="4" fill="#1e2638" stroke="#3b82f6" stroke-width="1"/>
+  <text x="300" y="186" fill="#38bdf8" font-family="'JetBrains Mono', monospace" font-size="10" text-anchor="middle">Real-time Simulation</text>
+
+  <rect x="235" y="202" width="130" height="24" rx="4" fill="#1e2638" stroke="#8b5cf6" stroke-width="1"/>
+  <text x="300" y="218" fill="#c084fc" font-family="'JetBrains Mono', monospace" font-size="10" text-anchor="middle">Hardware Debugging</text>
+
+  <!-- Right: Actuators / Output Node -->
+  <rect x="460" y="125" width="105" height="90" rx="8" fill="#161d30" stroke="#8b5cf6" stroke-width="1.5"/>
+  <text x="512" y="155" fill="#c084fc" font-family="'Inter', sans-serif" font-weight="700" font-size="12" text-anchor="middle">ACTUATORS</text>
+  <text x="512" y="175" fill="#94a3b8" font-family="'Inter', sans-serif" font-size="10" text-anchor="middle">PWM / Relays</text>
+  <text x="512" y="195" fill="#34d399" font-family="'JetBrains Mono', monospace" font-size="10" text-anchor="middle">Automated Sys</text>
+
+  <!-- Title Label -->
+  <text x="30" y="40" fill="#f8fafc" font-family="'Inter', sans-serif" font-weight="700" font-size="14">Embedded Control &amp; Circuit Architecture</text>
+  <text x="30" y="58" fill="#64748b" font-family="'JetBrains Mono', monospace" font-size="11">Youssef Elfarouk · Capstone System Design</text>
+</svg>

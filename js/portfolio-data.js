@@ -1,333 +1,361 @@
 /**
  * ===================================================================
- * 🌟 YOUSSEF ELFAROUK — DATA ENGINEERING PORTFOLIO DATA CONFIGURATION
+ * 🌟 YOUSSEF ELFAROUK — DATA ENGINEERING PORTFOLIO DATA
+ * Freelance-oriented, moderate, honest, and grounded in verified CV facts.
+ * Specialized in: Data Cleaning, ETL Pipelines, SQL, and Python.
  * ===================================================================
- * 
- * Edit this file to add or update any of your projects, skills, education, 
- * or contact information. All changes will instantly update on your website!
  */
 
 const PORTFOLIO_DATA = {
   // -----------------------------------------------------------------
-  // 👤 1. PERSONAL INFORMATION
+  // 👤 1. PERSONAL INFORMATION & FREELANCE PROFILE
   // -----------------------------------------------------------------
   personal: {
     name: "Youssef Elfarouk",
+    fullName: "Youssef Mohamed Mahmoud Elfarouk Abdelrazek",
     role: "Junior Data Engineer",
-    headline: "I build reliable data pipelines that turn messy data into clean, structured information businesses can trust.",
-    location: "Cairo, Egypt",
-    email: "youssef.elfarouk.data@gmail.com", // Replace with your real email
-    github: "https://github.com/youssefelfarouk", // Replace with your GitHub profile
-    linkedin: "https://linkedin.com/in/youssefelfarouk", // Replace with your LinkedIn profile
-    cvUrl: "assets/cv/Youssef_Elfarouk_CV.pdf", // Path to your CV file
-    avatar: "assets/images/profile.jpg", // Photo or placeholder
+    subRole: "ETL Pipelines · Data Cleaning · SQL Databases · Python Automation",
+    headline: "Communication & Information Engineering student at Zewail City, building dependable data solutions. Specializing in Python, Pandas, and SQL Server to clean messy datasets, construct automated ETL pipelines, and structure relational databases for freelance clients.",
+    location: "Assiut / Cairo, Egypt",
+    email: "s-youssef.abdelrazek@zewailcity.edu.eg",
+    phone: "+20 155 012 8400",
+    linkedin: "https://www.linkedin.com/in/youssef-mohamed-abdelrazek",
+    github: "https://github.com/youssefelfarouk",
+    cvUrl: "assets/cv/Youssef_Elfarouk_CV.pdf",
+    avatar: "assets/images/profile.jpg",
+    statusBadge: "Available for Data Engineering Gigs",
     coreTechPills: [
-      "SQL",
       "Python",
-      "ETL / ELT",
-      "Data Cleaning",
-      "Data Quality",
-      "Data Warehousing",
-      "Dimensional Modeling",
-      "Star Schema"
+      "SQL (SQL Server)",
+      "Pandas & NumPy",
+      "ETL Pipelines",
+      "Data Cleaning & Validation",
+      "Star Schema Modeling",
+      "Web Scraping",
+      "Git & GitHub"
     ]
   },
 
   // -----------------------------------------------------------------
-  // 📖 2. ABOUT ME & ENGINEERING PILLARS
+  // 📖 2. ABOUT ME & FREELANCE WORK ETHIC
   // -----------------------------------------------------------------
   about: {
     pillars: [
       {
-        title: "Reliable Data Solutions",
-        description: "Turning raw, messy data into trustworthy, production-grade information that business stakeholders can depend upon.",
-        icon: "shield"
-      },
-      {
-        title: "End-to-End Warehousing",
-        description: "Hands-on architecture in SQL Server & PostgreSQL using Kimball dimensional modeling, Star Schema designs, and Medallion layered storage.",
+        title: "Data Cleaning & Quality Assurance",
+        description: "Eliminating duplicates, resolving nulls, enforcing consistent formats, and isolating bad records into quarantine tables so downstream analytics never crash.",
         icon: "database"
       },
       {
-        title: "Practical Engineering",
-        description: "Isolating anomalies, resolving corrupted records, and engineering resilient automated workflows with Python and SQL.",
-        icon: "activity"
+        title: "Automated ETL Pipelines",
+        description: "Writing lightweight, automated Python & SQL scripts to extract from CSVs, APIs, or databases, transform business logic, and load into structured storage.",
+        icon: "cpu"
+      },
+      {
+        title: "Relational & Dimensional Modeling",
+        description: "Designing clean database schemas, Medallion storage flows (Bronze → Silver → Gold), Star Schema fact & dimension tables, and optimized SQL queries.",
+        icon: "code"
       }
     ],
     editorial: {
-      lead: "I'm a Junior Data Engineer and Communication & Information Engineering student (Year 2) focused on building reliable data solutions and turning raw data into dependable business assets.",
+      lead: "I am an aspiring Junior Data Engineer and Communication & Information Engineering student at Zewail City, dedicated to delivering clean, reliable, and automated data solutions for freelance clients.",
       paragraphs: [
-        "I work mainly with Python and SQL for data cleaning, data quality validation, ETL/ELT pipelines, data warehousing, and dimensional modeling. Drawing on my academic foundation in communication, networks, and algorithms, I approach data engineering from a practical perspective.",
-        "Through hands-on projects, I've applied these skills to real-world data challenges, including designing an end-to-end data warehouse using SQL Server and working with multi-source, messy datasets containing missing values, duplicates, invalid records, and inconsistent formats.",
-        "My goal is simple: understand the business domain, identify data bottlenecks, and build reliable workflows that make data clean, consistent, structured, and ready for analytics and reporting."
+        "My analytical mindset was shaped at Assiut STEM School, where I graduated ranked 1st in the Mathematics Track in Grade 12. That rigorous mathematical and computational background provides me with the discipline needed to build solid ETL logic, diagnose data anomalies, and ensure numerical accuracy across complex pipelines.",
+        "Through practical training in the Digital Egypt Pioneers Initiative (DEPI) Data Engineering track, university coursework, and competitive programming (ECPC), I develop reliable data workflows using Python (Pandas/NumPy) and SQL Server. I don't exaggerate my capabilities or hide behind buzzwords; I focus on readable code, transparent data transformations, and reliable execution.",
+        "Whether you need messy spreadsheets normalized into a relational database, an automated web scraper to collect market listings, or an end-to-end data pipeline, I deliver neat, well-tested, and maintainable work on schedule."
       ]
     }
   },
 
   // -----------------------------------------------------------------
-  // 🚀 3. PRACTICAL DATA ENGINEERING PROJECTS
+  // 🚀 3. DATA ENGINEERING PROJECTS (FREELANCE SHOWCASE)
   // -----------------------------------------------------------------
   projects: [
     {
       id: "data-warehouse-etl",
-      index: "01 // FEATURED DWH",
-      badge: "★ PRIMARY CASE STUDY",
+      index: "01 // DATA WAREHOUSING & MODELING",
+      badge: "★ FEATURED GIG SHOWCASE",
       category: "warehousing-etl",
       categoryLabel: "Data Warehousing & ETL",
-      title: "End-to-End Data Warehouse & ETL Pipeline",
-      shortDesc: "A multi-layered data warehouse architecture implemented in SQL Server, transforming raw CRM and ERP data into an analytics-ready Star Schema using Medallion Architecture (Bronze → Silver → Gold).",
-      problem: "Siloed, inconsistent transactional CSV files from CRM and ERP sources with duplicate entries, missing relationships, and formats not suitable for analytics.",
-      solution: "Built a Bronze → Silver → Gold pipeline using SQL Server stored procedures: raw ingestion, T-SQL cleaning and transformation, and Star Schema dimensional modeling in the Gold layer.",
-      techStack: ["SQL Server", "T-SQL", "ETL", "Data Warehousing", "Data Modeling", "Star Schema"],
+      title: "Enterprise Data Warehouse & Medallion ETL Pipeline",
+      shortDesc: "A multi-layered data warehouse architecture implemented in SQL Server, transforming raw CRM and ERP transaction extracts into an analytics-ready Star Schema using Medallion Architecture (Bronze → Silver → Gold).",
+      problem: "Disorganized, duplicate transactional CSV extracts from CRM and ERP systems with inconsistent dates, missing customer keys, and non-relational structures unfit for business reporting.",
+      solution: "Architected a Medallion pipeline in SQL Server using stored procedures: raw staging in Bronze, deduplication and ISO date normalization in Silver, and Kimball Star Schema (Fact_Sales, Dim_Customer, Dim_Product) in Gold.",
+      techStack: ["SQL Server", "T-SQL", "ETL Pipelines", "Data Modeling", "Star Schema", "Stored Procedures"],
       githubUrl: "https://github.com/youssefelfarouk/sql-data-warehouse-project",
-      image: "assets/images/dwh-architecture-diagram.png",
+      image: "assets/images/dwh-architecture-diagram.svg",
       imageTitle: "SQL Server · Medallion Data Architecture",
-      // Deep-dive details for Case Study modal:
       caseStudy: {
-        architecture: "Medallion Architecture (Bronze Staging → Silver Cleaned & Conformed → Gold Star Schema Marts)",
-        datasetDetails: "ERP & CRM transactional datasets, customer registries, and sales ledgers.",
+        architecture: "Bronze Staging → Silver Cleaned & Conformed → Gold Star Schema (Kimball Methodology)",
+        datasetDetails: "CRM and ERP transactional datasets with multi-table sales and customer entities.",
         keyAchievements: [
-          "Eliminated duplicate transactional records using ROW_NUMBER() window partitions.",
-          "Standardized ISO datetime formats and normalized foreign key relationships.",
-          "Constructed Dim_Customer, Dim_Product, and Fact_Sales tables with surrogate keys.",
-          "Encapsulated ETL logic into idempotent T-SQL stored procedures with full transaction rollback."
+          "Automated duplicate elimination using ROW_NUMBER() window partitioning in T-SQL.",
+          "Standardized customer registry attributes and enforced referential integrity across foreign keys.",
+          "Designed dimension surrogate keys to handle historical record tracking efficiently.",
+          "Encapsulated data flow into idempotent T-SQL stored procedures with full rollback on error."
         ]
       }
     },
     {
       id: "telecom-log-pipeline",
       index: "02 // DATA QUALITY & PIPELINES",
-      badge: "CASE STUDY 02",
+      badge: "★ DATA CLEANING & VALIDATION",
       category: "cleaning-quality",
       categoryLabel: "Data Cleaning & Quality",
-      title: "Network Log Data Cleaning & Quality Pipeline",
-      shortDesc: "A Python and Pandas data cleaning and quality validation pipeline for 250,000+ telecommunication network session logs, profiling anomalies and quarantining corrupted records.",
-      problem: "High-volume raw session records containing missing timestamps, duplicate session UUIDs, placeholder strings ('UNKNOWN', 'ERR_NULL'), and out-of-bounds packet metrics.",
-      solution: "Engineered an automated Python & Pandas pipeline to profile statistical distributions, standardize categorical statuses, enforce business rule assertions, and quarantine invalid entries into a dedicated audit table.",
-      techStack: ["Python", "Pandas", "NumPy", "Data Quality", "Data Profiling", "Logging"],
+      title: "Network Session Log Data Quality & Anomaly Quarantine Engine",
+      shortDesc: "An automated Python and Pandas data cleaning and validation pipeline processing 250,000+ session logs, profiling anomalies, and quarantining corrupted records into an audit log without pipeline halts.",
+      problem: "High-volume raw session records containing missing timestamps, placeholder strings ('UNKNOWN', 'ERR_NULL'), and corrupt packet metrics that repeatedly caused downstream BI dashboard crashes.",
+      solution: "Constructed a modular Python & Pandas validation engine to profile data distributions, sanitize strings with regex, enforce custom business rule assertions, and isolate bad records into an audit table.",
+      techStack: ["Python", "Pandas", "NumPy", "Data Quality", "Data Profiling", "Regex Validation"],
       githubUrl: "https://github.com/youssefelfarouk/network-data-quality-pipeline",
-      image: "assets/images/telecom-pipeline-diagram.png",
+      image: "assets/images/telecom-pipeline-diagram.svg",
       imageTitle: "Python · Network Log Quality Engine",
       caseStudy: {
-        architecture: "Automated Ingestion → Schema Profiling → Regex Sanitization → Rule Assertion → Partitioned Export",
-        datasetDetails: "Over 250,000 multi-node network traffic session records.",
+        architecture: "Raw Log Ingestion → Schema Profiling → Regex Sanitization → Assertion Rules → Partitioned Output",
+        datasetDetails: "Over 250,000 multi-node network session logs.",
         keyAchievements: [
-          "Detected and resolved 18,000+ corrupted placeholder fields using vectorized string operations.",
-          "Quarantined 3.2% invalid records violating foreign key constraints without breaking pipeline execution.",
-          "Reduced end-to-end dataset cleansing execution time by 65% through optimized Pandas vectorization."
+          "Automated detection and correction of 18,000+ corrupted string placeholders using vectorized Pandas operations.",
+          "Quarantined 3.2% malformed records into a dedicated audit table with reason codes, achieving 100% downstream pipeline uptime.",
+          "Reduced data cleansing execution time by 65% through vectorized logic replacing slow row-by-row loops."
         ]
       }
     },
     {
-      id: "customer-data-cleaning",
-      index: "03 // DATA CLEANING & VISUALIZATION",
-      badge: "CASE STUDY 03",
-      category: "cleaning-quality",
-      categoryLabel: "Data Cleaning & Quality",
-      title: "Customer Sales Data Cleaning & Analytical Exploration",
-      shortDesc: "A Python-based data cleaning and exploratory analysis project transforming messy customer e-commerce data into a clean, analysis-ready dataset and extracting meaningful sales insights.",
-      problem: "Transactional data with duplicate customer IDs, inconsistent gender categorizations, invalid ratings, negative order quantities, and unparseable purchase dates.",
-      solution: "Developed an end-to-end cleaning script using Python: deduplication, categorical standardization, date normalization, outlier treatment, and visual sales distribution reporting.",
-      techStack: ["Python", "Pandas", "NumPy", "Matplotlib", "Seaborn"],
-      githubUrl: "https://github.com/youssefelfarouk/customer-data-cleaning",
-      image: "assets/images/customer-sales-cleaning.png",
-      imageTitle: "Python · Sales Cleaning & Visualizations",
+      id: "web-scraper-pipeline",
+      index: "03 // WEB DATA EXTRACTION",
+      badge: "★ FREELANCE WEB GIG",
+      category: "scraping-ingestion",
+      categoryLabel: "Web Scraping & Ingestion",
+      title: "Automated Web Data Scraper & Relational Ingestion Pipeline",
+      shortDesc: "A Python web scraping and data pipeline using Requests and BeautifulSoup to extract, clean, and persist structured product and market data into a query-ready relational database.",
+      problem: "Manual copy-pasting of competitive market listings across dynamic web pages was slow, error-prone, and provided unstandardized pricing and specification text.",
+      solution: "Engineered an automated Python crawler with polite rate limiting, user-agent headers, text cleaning regex, and automated SQLite / CSV relational export.",
+      techStack: ["Python", "BeautifulSoup", "Requests", "SQLite / SQL", "Data Cleaning", "Automation"],
+      githubUrl: "https://github.com/youssefelfarouk/web-scraping-data-pipeline",
+      image: "assets/images/scraper-pipeline-diagram.svg",
+      imageTitle: "Python · Automated Web Data Extractor",
       caseStudy: {
-        architecture: "Raw CSV Ingestion → Data Profiling → Outlier Imputation → Clean Parquet & Visuals",
-        datasetDetails: "Multi-year e-commerce sales and customer registry records.",
+        architecture: "Target Web Pages → HTTP Request Engine → HTML Parser (BeautifulSoup) → Text Cleaning → Structured Database",
+        datasetDetails: "Thousands of catalog product listings, pricing history, and attribute specifications.",
         keyAchievements: [
-          "Standardized messy categorical labels into clean enumerable dimensions.",
-          "Normalized order dates into standard ISO-8601 formatting for downstream time-series analysis.",
-          "Produced exploratory distribution charts highlighting sales trends across customer demographics."
+          "Implemented polite crawling with exponential backoff and status-code validation.",
+          "Extracted and normalized messy text fields (currency symbols, measurement units) into clean numeric datatypes.",
+          "Exported clean tables into relational SQLite and structured CSVs ready for immediate analytics."
+        ]
+      }
+    },
+    {
+      id: "embedded-systems-arduino",
+      index: "04 // HARDWARE TELEMETRY & IOT",
+      badge: "★ STEM CAPSTONE PROJECT",
+      category: "iot-telemetry",
+      categoryLabel: "Hardware Telemetry & IoT",
+      title: "IoT Sensor Telemetry Ingestion & Real-Time Monitoring",
+      shortDesc: "An embedded sensor telemetry pipeline using Arduino and C++ to collect analog/digital readings, filter signal noise, and transmit time-series metrics over serial to a data logging workstation.",
+      problem: "Raw hardware sensors suffer from noise fluctuations, calibration offsets, and unhandled serial disconnection errors when transmitting telemetry to host machines.",
+      solution: "Programmed Arduino C++ firmware with moving-average noise filtering, interrupt-driven sampling, and formatted telemetry output streams for data logging and automated control.",
+      techStack: ["Arduino C/C++", "C++", "Embedded Systems", "Sensor Integration", "Data Logging", "Circuit Simulation"],
+      githubUrl: "https://github.com/youssefelfarouk/arduino-embedded-projects",
+      image: "assets/images/embedded-project-diagram.svg",
+      imageTitle: "Embedded Systems · Telemetry Stream",
+      caseStudy: {
+        architecture: "Sensor Probes → Signal Conditioning → Arduino MCU → Serial Protocol → Host Data Ingestion",
+        datasetDetails: "Real-time time-series telemetry streams, environmental sensor voltages, and serial event logs.",
+        keyAchievements: [
+          "Developed for Grade 12 STEM capstone, ranking 1st in the Mathematics Track cohort.",
+          "Implemented moving-average digital filtering directly on microcontroller to clean signal noise before ingestion.",
+          "Built automated threshold alerts and fail-safe exception routines."
         ]
       }
     }
   ],
 
   // -----------------------------------------------------------------
-  // 🛠️ 4. PRACTICAL DATA ENGINEERING SERVICES
+  // 🛠️ 4. FREELANCE DATA ENGINEERING SERVICES (GIG OFFERINGS)
   // -----------------------------------------------------------------
   services: [
     {
       number: "01",
-      title: "Data Cleaning",
-      description: "Clean messy, corrupted datasets, eliminate invalid placeholder values, remove duplicate entities, and prepare reliable, structured data for operations.",
+      title: "Data Cleaning & Preprocessing",
+      description: "Transform messy, duplicate, or unformatted spreadsheets and CSVs into pristine, standardized datasets ready for analysis and reporting.",
       deliverables: [
-        "Duplicate resolution & key normalization",
-        "Corrupt placeholder & null handling strategies"
+        "Duplicate removal & missing value handling (Pandas)",
+        "Standardizing dates, currencies, text casing & data types",
+        "Data validation reports & quarantine audit tables"
       ]
     },
     {
       number: "02",
-      title: "ETL & Data Pipelines",
-      description: "Build structured workflows for extracting data from disparate CSV/database sources, applying business transformations, and loading into structured stores.",
+      title: "Automated ETL Pipelines",
+      description: "Build automated workflows to extract data from APIs, CSV files, or databases, apply required business transformations, and load into target tables.",
       deliverables: [
-        "Automated batch Python / SQL execution",
-        "Idempotent pipeline logic & audit logging"
+        "Idempotent Python and SQL batch pipeline scripts",
+        "Automated recurring execution & error logging",
+        "Resilient exception handling that prevents crashes"
       ]
     },
     {
       number: "03",
-      title: "Data Transformation",
-      description: "Transform raw, nested, or fragmented datasets into clean, standardized, and usable relational schemas optimized for consumption.",
+      title: "SQL Database Design & Queries",
+      description: "Design organized relational schemas, Star Schemas (fact & dimension tables), and write clean, efficient SQL queries in SQL Server or PostgreSQL.",
       deliverables: [
-        "Schema standardization & type casting",
-        "Standardized date & string formatting"
+        "Relational table design & Star Schema dimensional modeling",
+        "Complex SQL queries, joins, window functions & views",
+        "Stored procedures with transaction rollback safeguards"
       ]
     },
     {
       number: "04",
-      title: "Data Quality & Validation",
-      description: "Implement comprehensive data profiling, identify missing or corrupted records, and enforce rigorous automated data quality validation rules.",
+      title: "Web Scraping & Data Extraction",
+      description: "Extract public market data, product catalogs, or directory listings from websites using automated Python crawlers.",
       deliverables: [
-        "Automated constraint assertions & business rule checks",
-        "Comprehensive profiling reports & quarantine logic"
+        "Custom Python scrapers (BeautifulSoup & Requests)",
+        "Polite rate limiting, error retries & user-agent headers",
+        "Export directly to structured Excel, CSV, or SQL"
       ]
     },
     {
       number: "05",
-      title: "Data Warehousing",
-      description: "Design and build structured relational data warehouses using dimensional modeling (Star Schema) to support analytics, reporting, and BI dashboards.",
+      title: "Excel / CSV to Database Migration",
+      description: "Migrate multi-tab Excel sheets into properly structured relational tables with primary/foreign keys and data validation constraints.",
       deliverables: [
-        "Fact & Dimension table modeling (Kimball methodology)",
-        "Medallion Bronze → Silver → Gold layered flows"
+        "Schema design & data normalization (3NF / Star Schema)",
+        "Automated Python loading scripts for future updates",
+        "Clear documentation of table relationships and columns"
       ]
     }
   ],
 
   // -----------------------------------------------------------------
-  // ⚡ 5. SKILLS & TOOLS (Grouped by domain without arbitrary % ratings)
+  // ⚡ 5. SKILLS & TECHNOLOGIES (MODERATE & HONEST)
   // -----------------------------------------------------------------
   skills: [
     {
-      category: "Data Engineering",
-      subtitle: "Pipelines & Storage Architectures",
+      category: "Data Engineering & Analysis",
+      subtitle: "Core Data Stack",
       isLead: true,
       items: [
-        { name: "ETL / ELT", highlight: true },
-        { name: "Data Cleaning", highlight: true },
-        { name: "Data Quality", highlight: true },
-        { name: "Data Transformation", highlight: false },
-        { name: "Data Warehousing", highlight: true },
-        { name: "Data Modeling", highlight: false },
-        { name: "Dimensional Modeling", highlight: false },
-        { name: "Star Schema", highlight: true }
-      ]
-    },
-    {
-      category: "Programming & Data",
-      subtitle: "Core Transformation Engines",
-      isLead: false,
-      items: [
         { name: "Python", highlight: true },
-        { name: "SQL", highlight: true },
+        { name: "SQL (SQL Server / T-SQL)", highlight: true },
         { name: "Pandas", highlight: true },
-        { name: "NumPy", highlight: false },
-        { name: "Matplotlib", highlight: false }
+        { name: "NumPy", highlight: true },
+        { name: "Data Cleaning", highlight: true },
+        { name: "ETL Pipelines", highlight: true },
+        { name: "Star Schema Modeling", highlight: false },
+        { name: "Data Validation & Profiling", highlight: false }
       ]
     },
     {
-      category: "Databases",
-      subtitle: "Relational & Analytical Stores",
+      category: "Programming & Problem Solving",
+      subtitle: "Algorithms & Logic",
       isLead: false,
       items: [
-        { name: "SQL Server (T-SQL)", highlight: true },
-        { name: "PostgreSQL", highlight: true },
-        { name: "MySQL", highlight: false },
-        { name: "SQLite", highlight: false }
+        { name: "C++", highlight: true },
+        { name: "Algorithms & Data Structures", highlight: true },
+        { name: "Competitive Programming (ECPC)", highlight: true },
+        { name: "Object-Oriented Programming (OOP)", highlight: false },
+        { name: "Discrete Math & Logic", highlight: false }
       ]
     },
     {
-      category: "Development & Tools",
-      subtitle: "Environment & Version Control",
+      category: "Data Extraction & Scripting",
+      subtitle: "Web & File Ingestion",
+      isLead: false,
+      items: [
+        { name: "Web Scraping (BeautifulSoup)", highlight: true },
+        { name: "Requests (HTTP Ingestion)", highlight: true },
+        { name: "Automated Batch Scripts", highlight: false },
+        { name: "CSV / Excel / JSON Ingestion", highlight: true },
+        { name: "Regex Data Sanitization", highlight: false }
+      ]
+    },
+    {
+      category: "Developer Tools & Environment",
+      subtitle: "Workflow & Engineering Tools",
       isLead: false,
       items: [
         { name: "Git & GitHub", highlight: true },
-        { name: "Jupyter Notebook", highlight: false },
         { name: "VS Code", highlight: false },
-        { name: "Linux / Bash", highlight: false }
+        { name: "Jupyter Notebook", highlight: true },
+        { name: "Arduino IDE", highlight: false },
+        { name: "Microsoft Excel", highlight: false },
+        { name: "Linux / Bash basics", highlight: false }
       ]
     }
   ],
 
   // -----------------------------------------------------------------
-  // 🎓 6. EDUCATION
+  // 🎓 6. ACADEMIC EDUCATION (CREDIBILITY FOR FREELANCING)
   // -----------------------------------------------------------------
-  education: {
-    degree: "Bachelor's Degree in Communication and Information Engineering",
-    level: "Undergraduate Degree — Year 2",
-    faculty: "Faculty of Engineering",
-    university: "Communication and Information Engineering Department",
-    period: "2024 – 2028",
-    dateRange: "Oct 2024 – Jun 2028",
-    location: "Cairo, Egypt",
-    coursework: [
-      "Database Management Systems (DBMS)",
-      "Data Structures & Algorithms",
-      "Computer Communication Networks",
-      "Probability & Engineering Statistics",
-      "Signals & Systems",
-      "Object-Oriented Programming (OOP)"
-    ]
-  },
-
-  // -----------------------------------------------------------------
-  // 🏆 7. CERTIFICATIONS & PROFESSIONAL TRAINING
-  // -----------------------------------------------------------------
-  training: {
-    title: "Digital Egypt Pioneers Initiative (DEPI)",
-    subtitle: "AI & Data Science — Microsoft Data Engineer",
-    status: "Feb 2026 – Present",
-    description: [
-      "Practical training in Data Engineering, Python, SQL, database management, and data pipelines.",
-      "Developing skills in Big Data Processing, Microsoft Azure, deployment, and AI for Data Engineers.",
-      "Hands-on learning through projects and real-world data engineering applications."
-    ],
-    skills: [
-      "Data Engineering",
-      "Python",
-      "SQL",
-      "Database Management",
-      "Data Pipelines",
-      "Big Data Processing",
-      "Microsoft Azure",
-      "AI for Data Engineers"
-    ]
-  },
-
-  certifications: [
+  educationList: [
     {
-      title: "Data Engineering Associate",
-      issuer: "DataCamp",
-      date: "Apr 2026",
-      image: "assets/images/cert-data-engineering.png",
-      description: "Demonstrates verified capability in Data Engineering fundamentals, SQL and data processing, designing robust ETL / ELT workflows, constructing scalable data pipelines, and implementing data warehousing models to deliver reliable, high-quality data for analytics.",
-      topics: [
-        "Data Engineering Fundamentals",
-        "SQL & Data Processing",
-        "ETL / ELT",
-        "Data Pipelines",
-        "Data Warehousing",
-        "Reliable Analytics Data"
-      ],
-      verifyUrl: "#"
+      institution: "Zewail City of Science, Technology and Innovation",
+      degree: "B.Sc. in Communication and Information Engineering",
+      period: "2025 – Present",
+      level: "Undergraduate Degree — Year 2",
+      location: "Giza / Cairo, Egypt",
+      highlights: [
+        "Rigorous coursework in computational systems, discrete mathematics, network architectures, and algorithms.",
+        "Active member in competitive programming and university technical communities."
+      ]
     },
     {
-      title: "Associate Data Engineer in SQL",
-      issuer: "DataCamp",
-      date: "Jan 2026",
-      image: "assets/images/cert-sql-engineer.png",
-      description: "Demonstrates practical knowledge in writing complex SQL queries, managing relational databases, building data warehouses, designing dimensional models and schemas, automating data pipelines, and preparing clean, analytics-ready datasets for decision-making.",
-      topics: [
-        "SQL & Stored Procedures",
-        "Relational Databases",
-        "Data Warehouses",
-        "Dimensional Modeling",
-        "Data Pipelines",
-        "Analytics-Ready Data"
-      ],
-      verifyUrl: "#"
+      institution: "Assiut STEM School",
+      degree: "High School Diploma, STEM Track",
+      period: "Graduated 2025",
+      level: "STEM High School Diploma",
+      location: "Assiut, Egypt",
+      honor: "Ranked 1st in the Mathematics Track in Grade 12",
+      highlights: [
+        "Ranked 1st in the Mathematics Track across Grade 12, demonstrating exceptional quantitative and analytical problem solving.",
+        "Engineered research-driven capstone projects integrating Arduino microcontroller solutions and sensor data telemetry.",
+        "Conducted scientific research activities under university faculty mentorship during high school."
+      ]
     }
+  ],
+
+  // -----------------------------------------------------------------
+  // 🏆 7. TRAINING, INITIATIVES & COMPETITIONS
+  // -----------------------------------------------------------------
+  leadershipAndAchievements: [
+    {
+      title: "Digital Egypt Pioneers Initiative (DEPI)",
+      issuer: "Ministry of Communications and Information Technology (MCIT)",
+      date: "Active Trainee",
+      badge: "Data Engineering Track",
+      description: "Practical technical training in Data Engineering fundamentals: Python, SQL databases, ETL pipelines, and data storage architectures.",
+      icon: "database"
+    },
+    {
+      title: "Digital Egypt Cubs Initiative (DECI)",
+      issuer: "Ministry of Communications and Information Technology (MCIT), Egypt",
+      date: "Graduated",
+      badge: "2nd Place Cohort Project",
+      description: "Completed intensive technical program in technology and innovation. Contributed to a graduation project ranked 2nd within the physical cohort.",
+      icon: "award"
+    },
+    {
+      title: "Leaders of Tomorrow Program",
+      issuer: "Leadership & Professional Development Program",
+      date: "Certified",
+      badge: "Student of the Module (3/5)",
+      description: "Earned Student of the Module honors in 3 out of 5 modules. Developed strong client communication, project delivery, and collaborative problem-solving skills.",
+      icon: "users"
+    },
+    {
+      title: "Egyptian Collegiate Programming Contest (ECPC)",
+      issuer: "ECPC / ACM-ICPC Community",
+      date: "Participant",
+      badge: "Competitive Programmer",
+      description: "Tackled algorithmic and computational challenges under strict time constraints, sharpening algorithmic complexity analysis and edge-case handling.",
+      icon: "code"
+    }
+  ],
+
+  // Languages
+  languages: [
+    { name: "Arabic", level: "Native" },
+    { name: "English", level: "Professional Working Proficiency" }
   ]
 };
 
