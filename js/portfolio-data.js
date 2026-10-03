@@ -19,7 +19,7 @@ const PORTFOLIO_DATA = {
     location: "Assiut / Cairo, Egypt",
     email: "s-youssef.abdelrazek@zewailcity.edu.eg",
     phone: "+20 155 012 8400",
-    linkedin: "www.linkedin.com/in/youssef-elfarouk-6767jk",
+    linkedin: "https://www.linkedin.com/in/youssef-elfarouk-6767jk",
     github: "https://github.com/farkooo",
     cvUrl: "assets/cv/Youssef_Elfarouk_CV.pdf",
     avatar: "assets/images/profile.jpg",
